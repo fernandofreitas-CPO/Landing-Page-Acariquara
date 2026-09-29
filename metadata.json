@@ -1,0 +1,6 @@
+{
+  "name": "Acariquara Tech",
+  "description": "Sistemas sob medida. Feitos em Manaus. Feitos pra durar como a acariquara. Abertura cinematográfica em papel recortado e stop-motion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

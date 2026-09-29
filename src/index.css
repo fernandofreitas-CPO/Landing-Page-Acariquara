@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --font-title: 'Archivo', -apple-system, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-hand: 'Covered By Your Grace', cursive;
+
+  --color-paper-cream: #EFE6D2;
+  --color-ink-black: #0E0C0A;
+  --color-flame-orange: #FF4A1C;
+  --color-brand-violet: #5B3DF5;
+  --color-mustard: #E8B83A;
+  --color-brand-cyan: #22A6F5;
+  --color-brand-purple: #6B4EE6;
+}
+
+:root {
+  background-color: #0E0C0A;
+  color: #0E0C0A;
+}
+
+html {
+  scroll-behavior: auto;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* Scissors cut paper displacement filter */
+.paper-cut {
+  filter: url(#paper-edge);
+}
+
+.paper-cut-rough {
+  filter: url(#paper-edge-rough);
+}
+
+/* Hard Paper Shadows (Solid color, 0 blur) */
+.shadow-hard-black {
+  box-shadow: 8px 8px 0px #0E0C0A;
+}
+
+.shadow-hard-black-sm {
+  box-shadow: 4px 4px 0px #0E0C0A;
+}
+
+.shadow-hard-black-lg {
+  box-shadow: 12px 12px 0px #0E0C0A;
+}
+
+.shadow-hard-cream {
+  box-shadow: 8px 8px 0px #EFE6D2;
+}
+
+.shadow-hard-orange {
+  box-shadow: 8px 8px 0px #FF4A1C;
+}
+
+.shadow-hard-violet {
+  box-shadow: 8px 8px 0px #5B3DF5;
+}
+
+.shadow-hard-mustard {
+  box-shadow: 8px 8px 0px #E8B83A;
+}
+
+/* Fine static paper grain */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* 12fps Projector Gate Jitter (active during countdown & leader) */
+@keyframes projector-gate-jitter {
+  0% { transform: translate(0px, 0px); }
+  20% { transform: translate(0.4px, -0.4px); }
+  40% { transform: translate(-0.5px, 0.3px); }
+  60% { transform: translate(0.3px, 0.4px); }
+  80% { transform: translate(-0.3px, -0.4px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.animate-projector-jitter {
+  animation: projector-gate-jitter 0.0833s steps(1) infinite;
+}
+
+/* Film scratch flicker */
+@keyframes film-scratch-flash {
+  0%, 94% { opacity: 0; transform: translateX(0); }
+  95% { opacity: 0.7; transform: translateX(18px); }
+  97% { opacity: 0; }
+  98% { opacity: 0.9; transform: translateX(-32px); }
+  100% { opacity: 0; }
+}
+
+.animate-film-scratch {
+  animation: film-scratch-flash 2.4s steps(1) infinite;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
